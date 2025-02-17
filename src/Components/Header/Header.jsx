@@ -50,7 +50,7 @@ const Header = () =>{
                         <span>& orders</span>
                         </a>
                         <div>
-                        <a href=""className={classes.Header__cart}>
+                        <a href=""className={classes.cart}>
                             <BiCart size={35} />
                             <span>0</span> 
                         </a>
