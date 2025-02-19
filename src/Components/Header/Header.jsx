@@ -46,27 +46,26 @@ const Header = () => {
                   </section>
                 </a>
                 <a href="">
-                  <p>Sign In</p>
-                  <span>Account & Lists</span>
-                </a>
-                <a href="">
-                  <p>returns</p>
-                  <span>& orders</span>
-                </a>
-                <div>
-                  <a href="" className={classes.cart}>
-                    <BiCart size={35} />
-                    <span>0</span>
-                  </a>
+                        <p>Sign In</p>
+                        <span>Account & Lists</span>
+                        </a>
+                    <a href="">
+                        <p>returns</p>
+                        <span>& orders</span>
+                        </a>
+                        <div>
+                        <a href=""className={classes.Header__cart}>
+                            <BiCart size={35} />
+                            <span>0</span> 
+                        </a>
+                        </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <LowerHeader />
-    </>
-  );
-};
+    </section>
+ </>
+  )
+}
 
-export default Header;
+export default Header
