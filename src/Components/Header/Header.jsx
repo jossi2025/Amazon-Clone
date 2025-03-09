@@ -28,10 +28,9 @@ const Header = () => {
               <span>
                 <SlLocationPin />
               </span>
+              <p>Delivery to</p>
+              <span>Ethiopia</span>
             </div>
-            <p>Delivery to</p>
-            <span>Ethiopia</span>
-            <div></div>
             {/* search */}
             <div className={classes.search}>
               <select name="" id="">

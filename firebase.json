@@ -1,9 +1,13 @@
 {
   "functions": [
     {
+      "port": 5002, 
       "source": "functions",
       "codebase": "default",
-      "ignore": [
+      "ignore": 
+      
+      
+      [
         "node_modules",
         ".git",
         "firebase-debug.log",
