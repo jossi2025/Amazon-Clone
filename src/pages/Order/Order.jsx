@@ -9,16 +9,16 @@ function Order() {
   const [{ user }, dispatch] = useContext(DataContext);
   const [order, setOrder] = useState([]);
 
-  useEffect(() => {
+ useEffect(() => {
     if (user) {
-      db.collection("users")
+      return db.collection("users")
         .doc(user.uid)
-        .collection("order")
+        .collection("orders")
         .orderBy("created", "desc")
         .onSnapshot((snapshot) => {
           console.log(snapshot);
           setOrder(
-            snapshot.docs.map((doc) => ({
+            snapshot.docs?.map((doc) => ({
               id: doc.id,
               data: doc.data(),
             }))
@@ -27,13 +27,13 @@ function Order() {
     } else {
       setOrder([]);
     }
-  }, []);
+  }, [user]);
   return (
     <LayOut>
       <section className={classes.container}>
         <div className={classes.order__container}>
           <h2>Your Orders</h2>
-          {order?.length === 0 && <div style={{padding:"20px"}}>you don't have orders yet.</div>}
+          {order?.length == 0 && <div style={{padding:"20px"}}>you don't have orders yet.</div>}
           {/* orderd items */}
           <div>
             {order?.map((eachOrder, i) => {
@@ -43,7 +43,7 @@ function Order() {
                   <p>Order ID: {eachOrder?.id}</p>
                   {eachOrder?.data?.basket?.map((orders) => {
                     return (
-                      <ProductCard flex={true} product={orders} key={order.id} />
+                      <ProductCard flex={true} product={orders} key={orders.id} />
                     );
                   })}
                 </div>

@@ -67,7 +67,7 @@ function Payment() {
       dispatch({ type: Type.EMPTY_BASKET });
 
       setProcessing(false);
-      navigate("/order", { state: { msg: "You have placed a new order" } });
+      navigate("/Orders", { state: { msg: "You have placed a new order" } });
     } catch (error) {
       console.log(error);
       setCardError("An error occurred while processing your payment. Please try again.");

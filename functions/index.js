@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const { onRequest } = require("firebase-functions/https");
 dotenv.config();
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
@@ -23,7 +24,6 @@ app.post("/payment/create", async (req, res) => {
     });
     res.status(201).json({
       clientSecret: paymentIntent.client_secret,
-      
     });
   } else {
     res.status(403).json({
@@ -31,10 +31,9 @@ app.post("/payment/create", async (req, res) => {
     });
   }
 });
+exports.api = onRequest(app);
 
-app.listen(5000, (err)=>{
-  if(err) throw err
-  console.log("Amazon Server on PORT: 5000, http://localhost:5000")
-})
-
-
+// app.listen(5000, (err)=>{
+//   if(err) throw err
+//   console.log("Amazon Server on PORT: 5000, http://localhost:5000")
+// })
